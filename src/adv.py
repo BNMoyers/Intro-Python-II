@@ -43,31 +43,49 @@ room['treasure'].s_to = room['narrow']
 
 # Welcome
 
+print()
+print('~' * 80)
+print()
 print("Welcome to the Caverns.")
-print("To continue your adventure, please make a selection...")
 # Make a new player object that is currently in the 'outside' room.
 player = Player('outside')
-# moves = str(input("[n] North [e] East [s] South [w] West [q] Quit "))
+valid_input = ['n', 'e', 's', 'w']
 # Write a loop that:
 #
 while True:
     print()
     print('~' * 80) 
+    print()
+    print("You find yourself at the:")
+    print()
     print(room[player.current_room].room_name)
     print('=' * len(room[player.current_room].room_name))
+    print()
+    print('\n' .join(textwrap.wrap(room[player.current_room].room_description, 75)))
+    print()
     print('~' * 80) 
+    print()
+    print("To continue your adventure, please make a selection...")
+    print()
 
+    move = (str(input("[n] North [e] East [s] South [w] West [q] Quit ")))
 
-   
+    if move == "q":
+        break
+    elif move == "n":
+        pass
+    elif move == "e":
+        pass
+    elif move == "s":
+        pass
+    elif move == "w":
+        pass
+    else: 
+        print('\n'.join(textwrap.wrap("You try to move, but find yourself glitching back to the same spot. An angry programmer goblin pokes her head out from behind the bushes and shouts 'hey, you, idiot! Read the sign!' while gesturing wildly at a wooden board with the valid inputs on it. You better do what she says.")))
 
+    
 
-
-# * Prints the current room name
-# def displayRoom(room_name):
-
-# displayRoom(player_one.room_name)
-
-# * Prints the current description (the textwrap module might be useful here).
+    
 # * Waits for user input and decides what to do.
 #
 # If the user enters a cardinal direction, attempt to move to the room there.
