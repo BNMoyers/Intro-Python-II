@@ -2,9 +2,10 @@
 # currently.
 
 # imports
-from room import Room
 
-class Player(Room): 
-    def __init__(self,room_name):
-        super().__init__(room_name)
+class Player: 
+    def __init__(self, current_room):
+        self.current_room = current_room
+
+      
             

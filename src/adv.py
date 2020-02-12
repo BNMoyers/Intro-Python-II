@@ -1,4 +1,6 @@
 # Imports
+import textwrap
+
 from room import Room
 from player import Player
 
@@ -6,7 +8,7 @@ from player import Player
 
 room = {
     'outside':  Room("Outside Cave Entrance",
-                     "North of you, the cave mount beckons"),
+                     "North of you, the cave mouth beckons"),
 
     'foyer':    Room("Foyer", """Dim light filters in from the south. Dusty
 passages run north and east."""),
@@ -39,12 +41,32 @@ room['treasure'].s_to = room['narrow']
 # Main
 #
 
-# Make a new player object that is currently in the 'outside' room.
+# Welcome
 
-player_one = Player('outside')
+print("Welcome to the Caverns.")
+print("To continue your adventure, please make a selection...")
+# Make a new player object that is currently in the 'outside' room.
+player = Player('outside')
+# moves = str(input("[n] North [e] East [s] South [w] West [q] Quit "))
 # Write a loop that:
 #
+while True:
+    print()
+    print('~' * 80) 
+    print(room[player.current_room].room_name)
+    print('=' * len(room[player.current_room].room_name))
+    print('~' * 80) 
+
+
+   
+
+
+
 # * Prints the current room name
+# def displayRoom(room_name):
+
+# displayRoom(player_one.room_name)
+
 # * Prints the current description (the textwrap module might be useful here).
 # * Waits for user input and decides what to do.
 #
