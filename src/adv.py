@@ -9,21 +9,21 @@ from item import Item
 
 room = {
     'outside':  Room("Outside Cave Entrance",
-                     "North of you, the cave mouth beckons"),
+                    """North of you, the cave mouth beckons""",[]),
 
     'foyer':    Room("Foyer", """Dim light filters in from the south. Dusty
-passages run north and east."""),
+passages run north and east.""",[]),
 
     'overlook': Room("Grand Overlook", """A steep cliff appears before you, falling
 into the darkness. Ahead to the north, a light flickers in
-the distance, but there is no way across the chasm."""),
+the distance, but there is no way across the chasm.""",[]),
 
     'narrow':   Room("Narrow Passage", """The narrow passage bends here from west
-to north. The smell of gold permeates the air."""),
+to north. The smell of gold permeates the air.""",[]),
 
     'treasure': Room("Treasure Chamber", """You've found the long-lost treasure
 chamber! Sadly, it has already been completely emptied by
-earlier adventurers. The only exit is to the south."""),
+earlier adventurers. The only exit is to the south.""",[]),
 }
 
 
@@ -45,13 +45,9 @@ item = {
     "stick": Item("Walking Stick", """A wooden walking stick with six jingling rings"""),
     "keyring": Item("Ancient Key", """An iron key engraved with the symbol of a fell vampire"""),
     "decoy": Item("Pouch", """A small leather pouch of flat stones"""),
-    "gauntlet": Item("Guantlet", """A bronze gauntlet """),
+    "gauntlet": Item("Guantlet", """A bronze gauntlet, recently given to you by an old soldier """),
     "rose": Item("Rose", """A petrified rose"""),
     "figurine": Item("Magic Figurine", """An iron figurine of a warrior which stabs you with a tiny spear when anyone approaches"""),
-
-
-
-
 }
 
 # Main
@@ -87,11 +83,15 @@ while True:
     print("To continue your adventure, please make a selection...")
     print()
 
-    player_choice = (str(input("[n] North [e] East [s] South [w] West [q] Quit ")))
+    player_choice = (str(input("[n] North [e] East [s] South [w] West [v] View Inventory [i]Investigate Room [q] Quit ")))
     if player_choice == "q":
         break
     elif player_choice in ["n", "e", "s", "w"]:
         player.move(player_choice)
+    elif player_choice == "v":
+        player.view_inventory()
+    elif player_choice == "i":
+        pass
     else: 
         print(f"\n\nYou try to move, but find yourself glitching back to the same spot. An angry programmer goblin pokes her head out from behind the bushes and shouts 'hey, you, idiot! Read the sign!' while gesturing wildly at a wooden board with the valid inputs on it. You better do what she says.")
 
