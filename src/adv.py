@@ -48,40 +48,36 @@ print('~' * 80)
 print()
 print("Welcome to the Caverns.")
 # Make a new player object that is currently in the 'outside' room.
-player = Player('outside')
-valid_input = ['n', 'e', 's', 'w']
+player = Player(input("What is your name, adventurer?"),room['outside'])
+
+print(f'Hello {player.name}.\n\n You are {player.current_room.room_name}')
+# def change_room(current_room, direction):
+
 # Write a loop that:
 #
 while True:
     print()
     print('~' * 80) 
     print()
-    print("You find yourself at the:")
+    print("You are:")
     print()
-    print(room[player.current_room].room_name)
-    print('=' * len(room[player.current_room].room_name))
+    print(f"{player.current_room.room_name}")
+    print('=' * len(player.current_room.room_name))
     print()
-    print('\n' .join(textwrap.wrap(room[player.current_room].room_description, 75)))
+    print(player.current_room)
     print()
     print('~' * 80) 
     print()
     print("To continue your adventure, please make a selection...")
     print()
 
-    move = (str(input("[n] North [e] East [s] South [w] West [q] Quit ")))
-
-    if move == "q":
+    player_choice = (str(input("[n] North [e] East [s] South [w] West [q] Quit ")))
+    if player_choice == "q":
         break
-    elif move == "n":
-        pass
-    elif move == "e":
-        pass
-    elif move == "s":
-        pass
-    elif move == "w":
-        pass
+    elif player_choice in ["n", "e", "s", "w"]:
+        player.move(player_choice)
     else: 
-        print('\n'.join(textwrap.wrap("You try to move, but find yourself glitching back to the same spot. An angry programmer goblin pokes her head out from behind the bushes and shouts 'hey, you, idiot! Read the sign!' while gesturing wildly at a wooden board with the valid inputs on it. You better do what she says.")))
+        print(f"\n\nYou try to move, but find yourself glitching back to the same spot. An angry programmer goblin pokes her head out from behind the bushes and shouts 'hey, you, idiot! Read the sign!' while gesturing wildly at a wooden board with the valid inputs on it. You better do what she says.")
 
     
 
