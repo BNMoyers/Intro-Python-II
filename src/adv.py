@@ -21,7 +21,7 @@ item = {
 
 room = {
     'outside':  Room("Outside Cave Entrance",
-                    """North of you, the cave mouth beckons""",[]),
+                    """North of you, the cave mouth beckons""",[item["gauntlet"]]),
 
     'foyer':    Room("Foyer", """Dim light filters in from the south. Dusty
 passages run north and east.""",[item["figurine"]]),
@@ -82,14 +82,14 @@ while True:
     print("To continue your adventure, please make a selection...")
     print()
 
-    player_choice = (str(input("[n] North [e] East [s] South [w] West [v] View Inventory [i]Investigate Room [q] Quit ")))
+    player_choice = (str(input("[n] North [e] East [s] South [w] West\n\n[i] Inventory [l] Look Around [q] Quit ")))
     if player_choice == "q":
         break
     elif player_choice in ["n", "e", "s", "w"]:
         player.move(player_choice)
-    elif player_choice == "v":
-        player.view_inventory()
     elif player_choice == "i":
+        player.view_inventory()
+    elif player_choice == "l":
         player.investigate()
     else: 
         print(f"\n\nYou try to move, but find yourself glitching back to the same spot. An angry programmer goblin pokes her head out from behind the bushes and shouts 'hey, you, idiot! Read the sign!' while gesturing wildly at a wooden board with the valid inputs on it. You better do what she says.")
