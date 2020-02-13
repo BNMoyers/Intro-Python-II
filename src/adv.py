@@ -3,6 +3,7 @@ import textwrap
 
 from room import Room
 from player import Player
+from item import Item
 
 # Declare all the rooms
 
@@ -37,7 +38,22 @@ room['narrow'].w_to = room['foyer']
 room['narrow'].n_to = room['treasure']
 room['treasure'].s_to = room['narrow']
 
-#
+# Declare all Items
+item = {
+    "symbol": Item("Holy Symbol", """A tiny dwarven anvil hanging from a bronze chain"""),
+    "mouse": Item("Mousey", """A mouse's skull which whispers strange names to you at night"""),
+    "stick": Item("Walking Stick", """A wooden walking stick with six jingling rings"""),
+    "keyring": Item("Ancient Key", """An iron key engraved with the symbol of a fell vampire"""),
+    "decoy": Item("Pouch", """A small leather pouch of flat stones"""),
+    "gauntlet": Item("Guantlet", """A bronze gauntlet """),
+    "rose": Item("Rose", """A petrified rose"""),
+    "figurine": Item("Magic Figurine", """An iron figurine of a warrior which stabs you with a tiny spear when anyone approaches"""),
+
+
+
+
+}
+
 # Main
 #
 
