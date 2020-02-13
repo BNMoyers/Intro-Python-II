@@ -7,7 +7,7 @@ class Player:
     def __init__(self, name, current_room):
         self.name = name
         self.current_room = current_room
-        self.inventory = ["gauntlet"]
+        self.inventory = []
 
     def move(self, direction):
         if getattr(self.current_room, f'{direction}_to'):
@@ -17,7 +17,12 @@ class Player:
     
     def view_inventory(self):
         for item in self.inventory:
-            print(item)
+            print(f"{item.item_name}\n\n{item.item_description}\n\n")
+    
+    def investigate(self):
+        print("Looking around the room, you find: \n")
+        for item in self.current_room.room_inventory:
+            print(f"{item.item_name}\n\n{item.item_description}\n\n")
 
       
             
